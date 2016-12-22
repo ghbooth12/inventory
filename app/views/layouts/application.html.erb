@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Inventory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,11 +10,32 @@
   </head>
 
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/products">Products</a>
-    </nav>
+    <div class="container">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+      </nav>
 
-    <%= yield %>
+      <%= yield %>
+
+      <div class="flash">
+        <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+        <% elsif flash.now[:alert]%>
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash.now[:alert] %>
+        </div>
+        <% elsif flash[:alert]%>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>

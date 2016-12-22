@@ -61,6 +61,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def import_btn
+    @imported_csv = CSVManager::Import.new("tmp/temp.csv")
+    flash[:notice] = "Imported successfully!"
+    binding.pry
+    redirect_to products_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
