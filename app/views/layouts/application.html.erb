@@ -11,13 +11,6 @@
 
   <body>
     <div class="container">
-      <nav>
-        <a href="/">Home</a>
-        <a href="/products">Products</a>
-      </nav>
-
-      <%= yield %>
-
       <div class="flash">
         <% if flash[:notice] %>
         <div class="alert alert-success">
@@ -36,6 +29,13 @@
         </div>
         <% end %>
       </div>
+      
+      <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+      </nav>
+
+      <%= yield %>
     </div>
   </body>
 </html>

@@ -1,5 +1,7 @@
 <h1>Products</h1>
 
+<p> <%= @count %> rows </p>
+
 <table>
   <thead>
     <tr>
@@ -26,5 +28,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
-<%= link_to 'Import CSV', import_CSV_path, class: 'btn btn-info' %>
+<%= link_to 'New Product', new_product_path, class: 'btn btn-success' %>

@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    csv = get_csv
+    binding.pry
+    unless csv.nil?
+      @count = csv.count
+    end
   end
 
   # GET /products/1
@@ -59,13 +64,6 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def import_btn
-    @imported_csv = CSVManager::Import.new("tmp/temp.csv")
-    flash[:notice] = "Imported successfully!"
-    binding.pry
-    redirect_to products_path
   end
 
   private
