@@ -1,17 +1,17 @@
 <h1>Import CSV</h1>
 
-<p> <%= @imported_csv.count %> rows of data imported successfully </p>
+<p> <%= @importer.count %> rows of data imported successfully </p>
 
 <h3>Columns</h3>
-<p> <%= @imported_csv.cols %> </p>
+<p> <%= @importer.cols %> </p>
 <h3>Data Rows</h3>
-<p> <%= @imported_csv.rows %> </p>
+<p> <%= @importer.rows %> </p>
 <h3>Whole Hash</h3>
-<p> <%= @imported_csv.entire %> </p>
+<p> <%= @importer.entire %> </p>
 
 <h3>Get Contents for Name</h3>
-<p> <%= @imported_csv.get_contents("name") %> </p>
+<p> <%= @importer.get_contents("name") %> </p>
 <h3>Get Contents for Type</h3>
-<p> <%= @imported_csv.get_contents("type")%> </p>
+<p> <%= @importer.get_contents("type")%> </p>
 <h3>Get Contents for Quantity</h3>
-<p> <%= @imported_csv.get_contents("quantity") %> </p>
+<p> <%= @importer.get_contents("quantity") %> </p>

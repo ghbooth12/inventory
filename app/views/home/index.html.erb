@@ -7,6 +7,11 @@
 <h2>User can choose a CSV file.</h2>
 <%= form_tag import_csv_home_index_path, multipart: true, class: 'form-inline' do %>
   <div class="form-group">
+    <%= label_tag :headers, "If you want custom headers" %>
+    <%= text_field_tag :headers, nil, class: 'form-control', placeholder: "e.g. name, age, group" %>
+  </div><br><br>
+  <div class="form-group">
+    <%= label_tag :file %>
     <%= file_field_tag :file, class: 'form-control' %>
   </div>
   <%= submit_tag 'Import CSV', class: 'btn btn-info' %>
