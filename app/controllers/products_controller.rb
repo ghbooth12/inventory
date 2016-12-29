@@ -5,6 +5,14 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+
+    @export = CSVManager::Export.new
+    # @export.download(@products)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @export.to_csv(@products) }
+    end
   end
 
   # GET /products/1
