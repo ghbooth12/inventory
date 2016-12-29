@@ -12,4 +12,13 @@ class HomeController < ApplicationController
     @importer = CSVManager::Import.new
     @importer.parse('tmp/default.csv')
   end
+
+  def save_all
+    @importer = CSVManager::Import.new
+    @importer.parse(params[:file])
+    @importer.create(Product)
+
+    redirect_to products_path
+  end
+
 end

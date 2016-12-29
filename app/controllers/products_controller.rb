@@ -5,11 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    csv = get_csv
-    binding.pry
-    unless csv.nil?
-      @count = csv.count
-    end
   end
 
   # GET /products/1
@@ -74,6 +69,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :type, :quantity)
+      params.require(:product).permit(:name, :category, :quantity)
     end
 end
