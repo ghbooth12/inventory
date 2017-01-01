@@ -5,14 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-
-    @export = CSVManager::Export.new
-    # @export.download(@products)
-
-    respond_to do |format|
-      format.html
-      format.csv { send_data @export.to_csv(@products) }
-    end
   end
 
   # GET /products/1
@@ -67,6 +59,11 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # This function would get called by a different route (triggered by a button)
+  def download
+    CSVManager::Export.new.download(self, Product.all)
   end
 
   private

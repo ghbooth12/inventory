@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do
+    collection { get :download }
+  end
 
-  resources :home, only: [:import_csv] do
+  resources :home, only: [] do
     collection { post :import_csv }
     collection { post :save_all }
   end
