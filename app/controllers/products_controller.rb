@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
 
   # This function would get called by a different route (triggered by a button)
   def download
-    CSVManager::Export.new.download(self, Product.all)
+    CSVManager::Export.new.download(self, Product.all, "products.csv")
   end
 
   private
