@@ -1,30 +1,74 @@
-<h1>Welcome</h1>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</p>
+<div class="jumbotron text-center">
+  <h2>Welcome to Inventory</h2><br>
+  <p>This is a sample app for <a href="https://github.com/ghbooth12/csv_manager">CSVManager</a> gem.</p>
+  <a class="btn btn-primary btn-lg" href="https://github.com/ghbooth12/csv_manager" role="button">CSVManager GitHub</a>
+  <a class="btn btn-primary btn-lg" href="https://github.com/ghbooth12/inventory" role="button">Inventory GitHub</a>
+</div>
 
-
-<h2>Case 1) User can choose a CSV file.</h2>
-<%= form_tag import_csv_home_index_path, multipart: true, class: 'form-inline' do %>
-  <div class="form-group">
-    <%= label_tag :headers, "If you want custom headers" %>
-    <%= text_field_tag :headers, nil, class: 'form-control', placeholder: "e.g. name, age, group" %>
-  </div><br><br>
-  <div class="form-group">
-    <%= label_tag :file %>
-    <%= file_field_tag :file, class: 'form-control' %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Example 1) Choose a CSV file and parse</h2>
   </div>
-  <%= submit_tag 'Import CSV', class: 'btn btn-info' %>
-<% end %>
-
-<h2>Case 2) User can set a default CSV file.</h2>
-<%= link_to 'Quick Default Import', quick_import_path, class: 'btn btn-warning' %>
-
-<h2>Case 3) User can choose a CSV file then populate the database.</h2>
-<%= form_tag save_all_home_index_path, multipart: true, class: 'form-inline' do %>
-  <div class="form-group">
-    <%= label_tag :file %>
-    <%= file_field_tag :file, class: 'form-control' %>
+  <div class="panel-body">
+    <%= form_tag import_csv_home_index_path, multipart: true, class: 'form-inline' do %>
+      <div class="form-group">
+        <%= label_tag :file %>
+        <%= file_field_tag :file, class: 'form-control' %>
+      </div>
+      <%= submit_tag 'Import CSV', class: 'btn btn-info' %>
+    <% end %>
   </div>
-  <%= submit_tag 'Import CSV & Save', class: 'btn btn-info' %>
-<% end %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Example 2) Create custom headers</h2>
+  </div>
+  <div class="panel-body">
+    <%= form_tag import_csv_with_headers_home_index_path, multipart: true, class: 'form-inline' do %>
+      <div class="form-group">
+        <%= label_tag :headers, "If you want custom headers" %>
+        <%= text_field_tag :headers, nil, class: 'form-control', placeholder: "e.g. name, age, group" %>
+      </div><br><br>
+      <div class="form-group">
+        <%= label_tag :file %>
+        <%= file_field_tag :file, class: 'form-control' %>
+      </div>
+      <%= submit_tag 'Import CSV', class: 'btn btn-info' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Example 3) Specify a CSV file path</h2>
+  </div>
+  <div class="panel-body">
+    <%= link_to 'Quick Default Import', quick_import_path, class: 'btn btn-warning' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Example 4) Choose a CSV file then populate Database</h2>
+  </div>
+  <div class="panel-body">
+    <%= form_tag save_all_home_index_path, multipart: true, class: 'form-inline' do %>
+      <div class="form-group">
+        <%= label_tag :file %>
+        <%= file_field_tag :file, class: 'form-control' %>
+      </div>
+      <%= submit_tag 'Import CSV & Save', class: 'btn btn-info' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Example 5) Download database in a CSV file</h2>
+  </div>
+  <div class="panel-body">
+    <p>1. Go to <%= link_to 'Product Index page', products_path %>.</p>
+    <p>2. Click "Download CSV" button.</p>
+  </div>
+</div>

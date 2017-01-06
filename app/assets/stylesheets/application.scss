@@ -15,4 +15,22 @@
  */
 
  @import "bootstrap-sprockets";
- @import "bootstrap"; 
+ @import "bootstrap";
+
+a.btn {
+  color: #fff;
+}
+
+p {
+  a, a:visited {
+    color: #ff5722;
+  }
+
+  a:hover {
+    background-color: transparent;
+  }
+}
+
+footer {
+  padding: 100px 0 50px;
+}

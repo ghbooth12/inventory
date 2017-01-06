@@ -4,8 +4,13 @@ class HomeController < ApplicationController
 
   def import_csv
     @importer = CSVManager::Import.new
-    header = params[:headers].split(',').map(&:strip)
-    @importer.parse(params[:file], header)
+    @importer.parse(params[:file])
+  end
+
+  def import_csv_with_headers
+    @importer = CSVManager::Import.new
+    headers = params[:headers].split(',').map(&:strip)
+    @importer.parse(params[:file], headers)
   end
 
   def quick_import
