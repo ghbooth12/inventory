@@ -47,7 +47,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "csv_manager", path: "../csv_manager"
+gem "csv_manager"
 gem "pry"
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
