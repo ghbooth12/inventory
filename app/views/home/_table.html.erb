@@ -1,0 +1,57 @@
+<% if @import.error %>
+  <div class="alert alert-danger" role="alert">
+    <p><%= @import.error %></p>
+  </div>
+<% end %>
+
+<div class="alert alert-success" role="alert">
+  <p><%= @import.count %> rows of data imported successfully</p>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Usage) Method cols, rows, entire</h2>
+  </div>
+  <div class="panel-body">
+    <p><b>Columns: </b> <%= @import.cols %></p>
+    <p><b>Data Rows: </b> <%= @import.rows %></p>
+    <p><b>Whole Hash: </b> <%= @import.entire %></p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Usage) Method get_contents</h2>
+  </div>
+  <div class="panel-body">
+    <% @import.cols.each do |col| %>
+      <p><b><%= col %>:</b> <%= @import.get_contents(col) %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Example Table</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <% @import.cols.each do |col| %>
+            <th><%= col %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @import.entire.each do |row_hash| %>
+          <tr>
+            <% @import.cols.each do |col| %>
+              <td><%= row_hash[col] %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

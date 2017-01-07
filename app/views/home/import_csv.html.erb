@@ -1,17 +1,3 @@
 <h1>Import CSV</h1>
 
-<p> <%= @importer.count %> rows of data imported successfully </p>
-
-<h3>Columns</h3>
-<p> <%= @importer.cols %> </p>
-<h3>Data Rows</h3>
-<p> <%= @importer.rows %> </p>
-<h3>Whole Hash</h3>
-<p> <%= @importer.entire %> </p>
-
-<h3>Get Contents for Name</h3>
-<p> <%= @importer.get_contents("name") %> </p>
-<h3>Get Contents for Category</h3>
-<p> <%= @importer.get_contents("category")%> </p>
-<h3>Get Contents for Quantity</h3>
-<p> <%= @importer.get_contents("quantity") %> </p>
+<%= render partial: 'table' %>
