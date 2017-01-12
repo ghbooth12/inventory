@@ -55,7 +55,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
-    csv_manager (1.0.1.pre.rc.1)
+    csv_manager (1.0.2.pre.rc.1)
+      logging
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -75,6 +76,10 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    little-plugger (1.1.4)
+    logging (2.1.0)
+      little-plugger (~> 1.1)
+      multi_json (~> 1.10)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -172,7 +177,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
-  csv_manager (~> 1.0.1.pre.rc.1)
+  csv_manager
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails

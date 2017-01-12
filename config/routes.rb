@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :products do
+  resources :products, only: [:index] do
     collection { get :download_list }
   end
 
